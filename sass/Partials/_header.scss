@@ -1,0 +1,249 @@
+@use "_variables.scss" as *;
+
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  background-color: $white;
+  z-index: 100;
+}
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  padding: 1.25rem 2rem;
+
+  .menu-btn {
+    height: 1.6rem;
+    width: 2.1rem;
+    .menu-btn-link {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+
+      &:hover .menu-bar {
+        background-color: $accent-color;
+      }
+    }
+
+    .menu-bar {
+      position: absolute;
+      background-color: #000;
+      height: 0.2rem;
+      width: 100%;
+      transition: all ease-in-out 0.15s;
+
+      &.bar-1 {
+        top: 0;
+        left: 0;
+        right: 0;
+      }
+
+      &.bar-3 {
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
+    }
+  }
+
+  .menu-open {
+    .bar-1 {
+      transform: translateY(0.7rem) rotate(45deg);
+      background-color: $accent-color;
+    }
+    .bar-2 {
+      transform: scale(0);
+    }
+
+    .bar-3 {
+      transform: translateY(-0.7rem) rotate(-45deg);
+      background-color: $accent-color;
+    }
+  }
+
+  .logo {
+    margin-left: 1rem;
+    img {
+      display: block;
+      width: 10rem;
+      height: 1.66rem;
+      color: #000;
+    }
+  }
+
+  .controls {
+    font-size: 1.7rem;
+    margin-left: auto;
+    margin-right: 3rem;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+
+    &-icon {
+      position: relative;
+      font-size: 1.8rem;
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -0.6rem;
+        height: 0.2rem;
+        width: 100%;
+        background-color: #000;
+        transition: all 0.2s;
+        transform: scaleX(0);
+      }
+
+      &:hover {
+        color: $accent-color;
+        &::after {
+          transform: scale(1);
+        }
+      }
+    }
+
+    a:not(:last-child) {
+      margin-right: 1.2rem;
+    }
+  }
+}
+.main-nav-container {
+  border-top: 1px solid $border-color;
+  border-bottom: 1px solid $border-color;
+  .main-nav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    &-list {
+      display: flex;
+      margin-bottom: 0;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      .main-nav-item a {
+        display: block;
+        white-space: nowrap;
+        padding: 1.5rem 2rem;
+        font-size: 1.3rem;
+        cursor: pointer;
+        text-transform: uppercase;
+
+        &:hover {
+          color: $accent-color;
+        }
+      }
+    }
+  }
+}
+
+.dropdown-nav-container {
+  position: relative;
+  padding: 0;
+  transform: scaleY(0);
+  transform-origin: top center;
+  transition: all ease-in-out 0.2s;
+
+  .dropdown-nav {
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: calc(100vh - 8rem);
+    overflow-y: auto;
+    padding-bottom: 12rem;
+    background-color: #f8f8f8;
+  }
+
+  .span .dropdown-nav-item {
+    &:hover {
+      background-color: $white;
+      border-left: 2px solid rgb(201, 161, 110);
+    }
+  }
+  .dropdown-nav-item {
+    border-bottom: 2px solid $border-color;
+    border-left: 2px solid rgba(201, 161, 110, 0);
+    padding: 1rem 2rem;
+    transition: all ease-in-out 0.1s;
+
+    &:not(.dropdown-icons):hover {
+      background-color: $white;
+      border-left: 2px solid rgb(201, 161, 110);
+    }
+
+    .dropdown-nav-link {
+      text-transform: uppercase;
+      font-size: 1.6rem;
+      line-height: 1.2;
+      text-align: left;
+      font-weight: $fw-400;
+      display: inline-block;
+      width: 100%;
+      transition: all ease-in-out 0.1s;
+    }
+  }
+
+  .dropdown-section .dropdown-nav-item:not(:last-child) {
+    border-bottom: none;
+  }
+
+  .subscribe-connect {
+    padding: 0;
+    .subscribe-connect-icons {
+      row-gap: 1rem;
+      margin-top: 0;
+    }
+  }
+}
+
+.menu-open {
+  transform-origin: top center;
+  transform: scaleY(1);
+}
+
+@media screen and (min-width: 600px) {
+  .dropdown-nav-container {
+    .dropdown-nav {
+      width: 28rem;
+      .subscribe-connect {
+        .subscribe-connect-icons svg {
+          width: 1.6rem;
+          height: 1.6rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .top-bar {
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    align-items: center;
+    padding: 1.25rem 3rem;
+    .logo {
+      justify-self: center;
+      img {
+        width: 34rem;
+        height: 5.6rem;
+      }
+    }
+
+    .controls {
+      margin-right: 0;
+      a:not(:last-child) {
+        margin-right: 4rem;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .dropdown-nav-container {
+    max-width: 1400px;
+  }
+}

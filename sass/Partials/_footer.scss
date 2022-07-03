@@ -1,0 +1,51 @@
+@use "_variables.scss" as *;
+
+footer {
+  ul {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer-nav-list,
+  .site-info-list {
+    font-size: 1.2rem;
+    font-weight: $fw-200;
+    text-transform: uppercase;
+
+    li {
+      padding: 2.2rem 0;
+    }
+  }
+
+  .site-info-list {
+    margin-bottom: 6rem;
+  }
+
+  .site-info-list:nth-child(-n + 2) {
+    font-size: 1.4rem;
+  }
+
+  .small-list-item a {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .footer {
+    .footer-nav {
+      max-width: 100rem;
+      margin: 0 auto;
+      .footer-nav-list {
+        font-size: 1.4rem;
+      }
+    }
+    ul {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    .site-info-list {
+      margin-bottom: 0;
+    }
+  }
+}

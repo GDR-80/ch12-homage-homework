@@ -1,0 +1,81 @@
+@use "_variables.scss" as *;
+
+body {
+  font-family: "FuturaPT", Arial, Helvetica, sans-serif;
+  font-weight: 200;
+  line-height: 1.38;
+}
+
+::selection {
+  background: rgba(0, 0, 0, 0.5);
+  color: $white;
+}
+
+input:focus,
+textarea:focus {
+  padding-left: 16px;
+  border-left-width: 2px;
+}
+
+a,
+a:visited,
+a:active {
+  color: #000;
+}
+
+a:hover,
+a:focus {
+  color: $accent-color;
+  cursor: pointer;
+}
+
+button {
+  color: #000;
+}
+
+.container {
+  max-width: 1380px;
+  padding-right: 3rem;
+  padding-left: 3rem;
+  margin: 0 auto;
+}
+
+.section-heading {
+  text-align: center;
+  font-weight: 200;
+  text-transform: uppercase;
+  line-height: 1.25;
+  letter-spacing: 0.09rem;
+}
+
+[class*=" icon-"],
+[class^="icon-"] {
+  font-family: icons;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-user:before {
+  content: ",";
+}
+
+.icon-loupe:before {
+  content: "1";
+}
+
+.icon-play:before {
+  content: '"';
+}
+
+.icon-plus:before {
+  content: "'";
+}
+
+.icon-play-c:before {
+  content: "#";
+}
